@@ -3,8 +3,8 @@ int startY;
 int endX;
 int endY;
 
-void setup(){
-  size(800,600);
+void setup() {
+  size(800, 600);
   startX = width/2;
   startY = 160;
   endX = 400;
@@ -12,9 +12,9 @@ void setup(){
   background(0);
 }
 
-double stroke;
+double strokeColor;
 
-void drawEdgeL(){
+void drawEdgeL() {
   beginShape();
   vertex(360, 100);
   vertex(350, 110);
@@ -23,7 +23,7 @@ void drawEdgeL(){
   endShape(CLOSE);
 }
 
-void drawEdgeR(){
+void drawEdgeR() {
   beginShape();
   vertex(440, 100);
   vertex(450, 110);
@@ -32,7 +32,7 @@ void drawEdgeR(){
   endShape(CLOSE);
 }
 
-void drawHammer(){
+void drawHammer() {
   strokeWeight(2);
   fill(95, 31, 1);
   rect(390, 0, 20, 105);
@@ -40,21 +40,20 @@ void drawHammer(){
   rect(360, 100, 80, 60);
   drawEdgeL();
   drawEdgeR();
-  
 }
 
-void draw(){
+void draw() {
   drawHammer();
   strokeWeight(5);
-  stroke = Math.random();
-  if(stroke <= .3){
-      stroke(254, 255, 23);
-    } else if(stroke <=.6){
-      stroke(255, 13, 0);
-    } else {
-      stroke(0, 255, 253);
-    }
-  while(endX <= width){
+  strokeColor = Math.random();
+  if (strokeColor <= .3) {
+    stroke(254, 255, 23);
+  } else if (strokeColor <=.6) {
+    stroke(255, 13, 0);
+  } else {
+    stroke(0, 255, 253);
+  }
+  while (endX <= width) {
     endX = startX + (int)(Math.random()*16)-6;
     endY = startY + (int)(Math.random()*18);
     line(startX, startY, endX, endY);
@@ -63,7 +62,7 @@ void draw(){
   }
 }
 
-void mousePressed(){
+void mousePressed() {
   startX = width/2 + (int)(Math.random()*16)-6;
   startY = 160;
   endX = 0;
